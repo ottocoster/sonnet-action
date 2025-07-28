@@ -8,12 +8,15 @@ dependencies = [
     "anthropic[bedrock]>=0.40.0",
 ]
 
+[project.scripts]
+call-claude = "sonnet_action.call_claude:main"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-py-modules = ["call_claude"]
+packages = ["sonnet_action"]
 
 [tool.uv]
 dev-dependencies = [
