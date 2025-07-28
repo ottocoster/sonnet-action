@@ -36,7 +36,7 @@ def main():
         
         # Call Claude Sonnet 4 (latest version)
         message = client.messages.create(
-            model="anthropic.claude-sonnet-4-20250514-v1:0",
+            model="us.anthropic.claude-sonnet-4-20250514-v1:0",
             max_tokens=1000,
             messages=[
                 {
