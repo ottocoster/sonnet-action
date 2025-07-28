@@ -27,6 +27,7 @@ def main():
     client = AnthropicBedrock(
         aws_access_key=aws_key,
         aws_secret_key=aws_secret,
+        aws_region='us-west-2',
     )
     
     try:
