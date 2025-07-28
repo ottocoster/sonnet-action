@@ -25,7 +25,7 @@ def main():
     # Initialize the Bedrock client
     # Uses AWS credentials from environment variables
     client = AnthropicBedrock(
-        aws_region='us-west-2',
+        aws_region='us-west-2 claude',
         aws_access_key=aws_key,
         aws_secret_key=aws_secret,
     )
