@@ -1,0 +1,42 @@
+name: Call Claude Sonnet on Bedrock
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "Message to send to Claude"
+        required: false
+        default: "Hello, Claude! Please write a short poem about automation."
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  call-claude:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Call Claude Sonnet
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ vars.AWS_REGION || 'us-west-2' }}
+          USER_MESSAGE: ${{ github.event.inputs.message || 'Hello, Claude! Please write a short poem about automation.' }}
+        run: uv run python call_claude.py
