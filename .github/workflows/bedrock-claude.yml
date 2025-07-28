@@ -15,6 +15,7 @@ on:
 jobs:
   call-claude:
     runs-on: ubuntu-latest
+    environment: main
 
     steps:
       - name: Checkout code
