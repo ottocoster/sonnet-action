@@ -24,7 +24,6 @@ def main():
     # Initialize the Bedrock client
     # Uses AWS credentials from environment variables
     client = AnthropicBedrock(
-        aws_region=os.getenv('AWS_REGION', 'us-east-1'),
     )
     
     try:
