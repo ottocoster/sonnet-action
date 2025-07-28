@@ -39,4 +39,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ vars.AWS_REGION || 'us-west-2' }}
           USER_MESSAGE: ${{ github.event.inputs.message || 'Hello, Claude! Please write a short poem about automation.' }}
-        run: uv run python call_claude.py
+        run: uv run call-claude

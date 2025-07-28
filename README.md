@@ -57,7 +57,7 @@ The action can be triggered in three ways:
 
 3. Run the script:
    ```bash
-   uv run python call_claude.py
+   uv run call-claude
    ```
 
 ## What This Does
@@ -71,7 +71,7 @@ This action sends a message to Claude Sonnet 4 via Amazon Bedrock and prints the
 
 ## Customization
 
-You can modify `call_claude.py` to:
+You can modify `sonnet_action/call_claude.py` to:
 
 - Use different Claude models (see [model names](https://docs.anthropic.com/en/api/claude-on-bedrock#api-model-names))
 - Adjust `max_tokens` for longer/shorter responses
