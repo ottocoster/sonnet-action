@@ -24,7 +24,7 @@ def main():
     # Initialize the Bedrock client
     # Uses AWS credentials from environment variables
     client = AnthropicBedrock(
-        aws_region=os.getenv('AWS_REGION', 'us-west-2'),
+        aws_region=os.getenv('AWS_REGION', 'us-east-1'),
     )
     
     try:
@@ -33,7 +33,7 @@ def main():
         
         # Call Claude Sonnet 4 (latest version)
         message = client.messages.create(
-            model="anthropic.claude-sonnet-4-20250514-v1:0",
+            model="us.anthropic.claude-sonnet-4-20250514-v1:0",
             max_tokens=1000,
             messages=[
                 {
