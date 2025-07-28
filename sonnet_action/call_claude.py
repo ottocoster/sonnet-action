@@ -16,6 +16,7 @@ def main():
     # Check for required AWS credentials
     aws_key = os.getenv('AWS_ACCESS_KEY_ID')
     aws_secret = os.getenv('AWS_SECRET_ACCESS_KEY')
+    
     if not aws_key or not aws_secret:
         print("Error: AWS credentials not found. Please set AWS_ACCESS_KEY_ID "
               "and AWS_SECRET_ACCESS_KEY environment variables.")
@@ -24,6 +25,9 @@ def main():
     # Initialize the Bedrock client
     # Uses AWS credentials from environment variables
     client = AnthropicBedrock(
+        aws_region='us-west-2',
+        aws_access_key_id=aws_key,
+        aws_secret_access_key=aws_secret,
     )
     
     try:
