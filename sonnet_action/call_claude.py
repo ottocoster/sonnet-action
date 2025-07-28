@@ -26,8 +26,8 @@ def main():
     # Uses AWS credentials from environment variables
     client = AnthropicBedrock(
         aws_region='us-west-2',
-        aws_access_key_id=aws_key,
-        aws_secret_access_key=aws_secret,
+        aws_access_key=aws_key,
+        aws_secret_key=aws_secret,
     )
     
     try:
